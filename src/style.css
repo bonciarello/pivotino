@@ -1,0 +1,176 @@
+/* ================================================================
+   Pivotino — Design Tokens & Global Styles
+   ================================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ---- Color tokens ---- */
+  --color-surface:        #FEFCF8;
+  --color-surface-alt:    #F5F2EB;
+  --color-surface-hover:  #EDE9E0;
+  --color-border:         #DBD6CC;
+  --color-border-strong:  #B8B0A4;
+  --color-text:           #2D2A26;
+  --color-text-muted:     #7A746C;
+  --color-text-subtle:    #A8A298;
+
+  --color-primary:        #089488;
+  --color-primary-hover:  #067A6E;
+  --color-primary-light:  #E6F5F3;
+
+  --color-indigo:         #3B4CCA;
+  --color-indigo-light:   #EBEDFA;
+  --color-indigo-hover:   #2F3EB0;
+
+  --color-coral:          #DC3B5C;
+  --color-coral-light:    #FCE8EC;
+  --color-coral-hover:    #C72E4E;
+
+  --color-amber:          #D97706;
+  --color-amber-light:    #FFF3E0;
+  --color-amber-hover:    #B85F04;
+
+  --color-error:          #DC2626;
+  --color-error-light:    #FEF2F2;
+  --color-success:        #16A34A;
+
+  --color-focus:          #089488;
+
+  /* ---- Typography ---- */
+  --font-display:  'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --font-body:     'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:     'JetBrains Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Type scale */
+  --text-2xl: 2rem;
+  --text-xl:  1.5rem;
+  --text-lg:  1.125rem;
+  --text-base: 1rem;
+  --text-sm:  0.875rem;
+  --text-xs:  0.75rem;
+  --text-2xs: 0.6875rem;
+
+  /* ---- Spacing (8px grid) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ---- Radii ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
+
+  /* ---- Transitions ---- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* ================================================================
+   Base
+   ================================================================ */
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+}
+
+#app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================================================
+   Focus
+   ================================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ================================================================
+   Reduced motion
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ================================================================
+   Utility
+   ================================================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ================================================================
+   Scrollbar (subtle)
+   ================================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
